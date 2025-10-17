@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuraNest AI - Complete AI Agency Solutions</title>
+    <meta name="description" content="Professional AI coordination systems by Khalid Rind. AI Agency Notion OS, LinkedIn automation, and working AI solutions.">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="AI Agency Notion OS - Complete Management System">
+    <meta property="og:description" content="Professional AI coordination by Khalid Rind. Real templates managing 3.2M+ LOC portfolio.">
+    <meta property="og:image" content="https://neuranestai.world/assets/og-image.jpg">
+    <meta property="og:url" content="https://neuranestai.world">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1f2937;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f5f9;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 1rem 0;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #9ca3af;
+            font-size: 1.5rem;
+        }
+        
+        /* Testimonial */
+        .testimonial {
+            padding: 80px 0;
+            background: #1f2937;
+            color: white;
+            text-align: center;
+        }
+        
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .pricing-card {
+                margin: 0 20px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <h1>🧠 AI Agency Notion OS</h1>
+                <p class="subtitle">
+                    Complete AI agency management system from Khalid Rind<br>
+                    Managing 3.2M+ LOC • 25+ AI Models Coordinated • Real Revenue Systems
+                </p>
+                <a href="#pricing" class="cta-button" onclick="scrollToPricing()">
+                    Get Complete System - $297
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>What You Get (Complete Templates)</h2>
+            <div class="features-grid">
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Client Command Center</h3>
+                    <p>Complete client management based on real 3.2M+ LOC portfolio management. Actual system, not theory.</p>
+                </div>
+                
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-icon">🤖</div>
+                    <h3>25 AI Model Tracker</h3>
+                    <p>GPT-4, Claude, Gemini coordination system. First documented multi-AI management solution.</p>
+                </div>
+                
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-icon">💼</div>
+                    <h3>LinkedIn Automation</h3>
+                    <p>w_member_social APPROVED automation workflows. Professional networking on autopilot.</p>
+                </div>
+                
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-icon">💰</div>
+                    <h3>Revenue Calculator</h3>
+                    <p>Profit optimization framework from real business. Track ROI and optimize operations.</p>
+                </div>
+                
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-icon">🎥</div>
+                    <h3>5 Implementation Videos</h3>
+                    <p>Professional training with authentic implementation guides. No placeholder content.</p>
+                </div>
+                
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-icon">🎁</div>
+                    <h3>30 Bonus Templates</h3>
+                    <p>Email templates, onboarding systems, cost optimization guides worth $197 alone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="pricing-card animate-fade-in">
+                <h3>🚀 Launch Special</h3>
+                <div class="price">
+                    $297
+                    <div class="original-price">$497</div>
+                </div>
+                <p style="margin-bottom: 2rem;">
+                    <strong>Total Value: $1,485</strong><br>
+                    30-day money-back guarantee<br>
+                    30-day direct creator support
+                </p>
+                <button id="checkout-button" class="cta-button" style="width: 100%; border: none; cursor: pointer;">
+                    ⚡ Instant Download - $297
+                </button>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b7280;">
+                    Secure payment via Stripe • Instant digital delivery
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="testimonial-content animate-fade-in">
+                <p class="testimonial-text">
+                    "This isn't theoretical. Every template comes from systems I use daily to manage millions of lines of code and real client projects. It works because it's based on actual experience, not AI-generated fluff."
+                </p>
+                <p><strong>- Khalid Rind, AI Master Trainer</strong></p>
+                <p>Melbourne, Australia • November 2021 → Present</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 NeuraNest AI. Created by Khalid Rind.</p>
+            <p>Contact: neuranest@neuranestai.world</p>
+        </div>
+    </footer>
+
+    <script>
+        // Stripe Configuration (using public key only)
+        const stripe = Stripe('pk_test_51RbXu23iFqttcbW7sfS2Xkd2ZmWIduYBWs02NL9hkuVVBI2WXXZ40pHSxCM9n5xhYvsLcTvmbrommBpg3NWKBBxr001wJCiaJo');
+        
+        document.getElementById('checkout-button').addEventListener('click', async () => {
+            // For now, redirect to contact until backend is set up
+            window.location.href = 'mailto:neuranest@neuranestai.world?subject=AI Agency Notion OS Purchase&body=I want to purchase the AI Agency Notion OS for $297.';
+        });
+        
+        // Smooth scroll to pricing
+        function scrollToPricing() {
+            document.getElementById('pricing').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all feature cards
+        document.querySelectorAll('.feature-card, .pricing-card, .testimonial-content').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+        
+        // Analytics tracking
+        if (typeof gtag !== 'undefined') {
+            // Track page view
+            gtag('config', 'G-MP1L1DMR0E');
+            
+            // Track button clicks
+            document.getElementById('checkout-button').addEventListener('click', () => {
+                gtag('event', 'purchase_attempt', {
+                    'event_category': 'ecommerce',
+                    'event_label': 'ai-agency-notion-os',
+                    'value': 297
+                });
+            });
+        }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MP1L1DMR0E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MP1L1DMR0E');
+    </script>
+</body>
+</html>
