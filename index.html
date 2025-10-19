@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NeuraNest AR/VR Education | Immersive Empire Showcase</title>
-    <meta name="description" content="Live AR/VR education platforms, six immersive universes, verified deployment stack, and media lab for investor-ready demonstrations." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuraNest AR/VR Education | Revolutionary Immersive Learning Platform</title>
+    <meta name="description" content="Transform education through AR/VR technology. 6 immersive learning modules, 95% engagement, 85% retention. From cosmos to emergency training.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Tailwind Custom Configuration -->
     <script>
       tailwind.config = {
         theme: {
@@ -20,518 +27,800 @@
             },
             colors: {
               'brand-cyan': {
-                DEFAULT: '#00F6FF',
-                light: '#7DFAFF',
-                dark: '#00B8BF',
+                'DEFAULT': '#00F6FF',
+                'light': '#7DFAFF',
+                'dark': '#00B8BF',
               },
               'brand-purple': {
-                DEFAULT: '#A77EFF',
-                light: '#D4B5FF',
-                dark: '#764BA2',
+                'DEFAULT': '#A77EFF',
+                'light': '#D4B5FF',
+                'dark': '#764ba2',
               },
               'brand-slate': {
-                900: '#0F172A',
-                800: '#1E293B',
-                700: '#334155',
-                600: '#475569',
+                '900': '#0F172A',
+                '800': '#1E293B',
+                '700': '#334155',
+                '600': '#475569',
               },
               'brand-deep-blue': '#020024',
               'brand-green': '#4ade80',
-            },
-            backgroundImage: {
-              'hero-overlay': 'linear-gradient(120deg, rgba(2,0,36,0.92) 0%, rgba(32,33,72,0.85) 50%, rgba(8,18,56,0.88) 100%)',
-              'purple-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              'cyan-purple': 'linear-gradient(90deg, #00F6FF 0%, #A77EFF 100%)',
             }
           }
         }
       }
     </script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIj+7rGiqn+Y+Ry0m0H55p+2e6jF4Z7GoYb28P0hH7Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <style>
-      .text-gradient {
-        background: linear-gradient(90deg, #00F6FF, #A77EFF);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .hero-video::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(120deg, rgba(5, 8, 22, 0.92) 0%, rgba(9, 12, 32, 0.82) 60%, rgba(8, 10, 24, 0.88) 100%);
-      }
-      .module-card {
-        position: relative;
-        overflow: hidden;
-      }
-      .module-card::before {
-        content: '';
-        position: absolute;
-        inset: -2px;
-        background: linear-gradient(140deg, rgba(0,246,255,0.45), rgba(167,126,255,0.25));
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-      .module-card:hover::before {
-        opacity: 1;
-      }
-      .module-card > div {
-        position: relative;
-        z-index: 1;
-        background: rgba(15, 23, 42, 0.9);
-      }
-      .glass {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.75), rgba(51, 65, 85, 0.55));
-        border: 1px solid rgba(0, 246, 255, 0.12);
-        backdrop-filter: blur(12px);
-      }
-      .accent-bar {
-        height: 3px;
-        width: 80px;
-        background: linear-gradient(90deg, rgba(0, 246, 255, 0), rgba(0, 246, 255, 0.8), rgba(167, 126, 255, 0));
-      }
-      .ambient-toggle {
-        box-shadow: 0 10px 30px rgba(0, 246, 255, 0.25);
-      }
+        /* Custom gradient text */
+        .text-gradient {
+            background: linear-gradient(90deg, #00F6FF, #A77EFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Purple gradient background */
+        .purple-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Cyan-purple gradient */
+        .cyan-purple-gradient {
+            background: linear-gradient(90deg, #00F6FF 0%, #A77EFF 100%);
+        }
+
+        /* Active nav link */
+        .nav-link.active {
+          color: #00F6FF;
+          position: relative;
+        }
+
+        .nav-link.active::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background-color: #00F6FF;
+        }
+
+        /* Smooth animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .logo-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Module card gradient border effect */
+        .module-card-border {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #00F6FF, #A77EFF);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .module-card-border:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Video overlay */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
     </style>
 </head>
-<body class="font-sans bg-brand-slate-900 text-gray-200">
-    <audio id="ambientAudio" src="education-video.mp4" loop></audio>
-    <button id="musicToggle" class="ambient-toggle fixed right-6 bottom-6 z-50 flex items-center gap-3 rounded-full border border-brand-cyan/50 bg-brand-slate-800 px-5 py-3 text-sm font-semibold text-brand-cyan transition hover:-translate-y-1 hover:border-brand-cyan">
-      <i class="fa-solid fa-volume-xmark"></i>
-      Ambient Sound
-    </button>
-
-    <header class="sticky top-0 z-40 bg-brand-slate-900/95 backdrop-blur border-b border-white/10">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#home" class="flex items-center gap-3">
-          <div class="relative h-12 w-12 rounded-full bg-cyan-purple flex items-center justify-center text-brand-slate-900 font-bold text-xl">NN</div>
-          <div>
-            <p class="text-xs uppercase tracking-[0.4em] text-white/60">NeuraNest</p>
-            <p class="text-lg font-semibold text-white">Immersive Education Empire</p>
-          </div>
-        </a>
-        <nav class="hidden md:flex items-center gap-8 text-sm">
-          <a href="#vision" class="nav-link transition hover:text-brand-cyan">Vision</a>
-          <a href="#platforms" class="nav-link transition hover:text-brand-cyan">Live Platforms</a>
-          <a href="#modules" class="nav-link transition hover:text-brand-cyan">Learning Universes</a>
-          <a href="#immersion" class="nav-link transition hover:text-brand-cyan">Immersion Stack</a>
-          <a href="#results" class="nav-link transition hover:text-brand-cyan">Results</a>
-          <a href="#media" class="nav-link transition hover:text-brand-cyan">Media Lab</a>
-          <a href="#contact" class="nav-link transition hover:text-brand-cyan">Connect</a>
-        </nav>
-        <a href="mailto:neuranest@neuranestai.world?subject=Book%20an%20Immersive%20Briefing" class="hidden md:inline-flex items-center gap-2 rounded-full border border-brand-cyan/70 px-5 py-2 text-sm font-semibold text-brand-cyan hover:-translate-y-0.5 hover:border-brand-cyan">
-          <i class="fa-solid fa-headset"></i>
-          Book Live Demo
-        </a>
-      </div>
+<body class="font-sans bg-brand-slate-900 text-gray-300">
+    <!-- Header -->
+    <header class="bg-brand-slate-800 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl">
+            <a href="#home" class="text-brand-cyan text-3xl font-extrabold tracking-tight flex items-center gap-3">
+                <svg class="logo-float w-12 h-12" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00F6FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#A77EFF;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Brain/Neural Network Icon -->
+                    <circle cx="100" cy="70" r="8" fill="#00F6FF"/>
+                    <circle cx="130" cy="80" r="8" fill="#A77EFF"/>
+                    <circle cx="120" cy="110" r="8" fill="#667eea"/>
+                    <circle cx="150" cy="100" r="8" fill="#764ba2"/>
+                    <circle cx="110" cy="140" r="8" fill="#00F6FF"/>
+                    <line x1="100" y1="70" x2="130" y2="80" stroke="#fff" stroke-width="2" opacity="0.6"/>
+                    <line x1="130" y1="80" x2="120" y2="110" stroke="#fff" stroke-width="2" opacity="0.6"/>
+                    <line x1="120" y1="110" x2="150" y2="100" stroke="#fff" stroke-width="2" opacity="0.6"/>
+                    <line x1="120" y1="110" x2="110" y2="140" stroke="#fff" stroke-width="2" opacity="0.6"/>
+                    <line x1="100" y1="70" x2="120" y2="110" stroke="#fff" stroke-width="2" opacity="0.6"/>
+                </svg>
+                <span>NeuraNest<span class="block text-gray-300 text-xs uppercase font-light tracking-widest -mt-1">AR/VR Education</span></span>
+            </a>
+            <nav>
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="text-gray-300 hover:text-brand-cyan transition-colors duration-300 relative nav-link active">Home</a></li>
+                    <li><a href="#modules" class="text-gray-300 hover:text-brand-cyan transition-colors duration-300 relative nav-link">Modules</a></li>
+                    <li><a href="#platforms" class="text-gray-300 hover:text-brand-cyan transition-colors duration-300 relative nav-link">Platforms</a></li>
+                    <li><a href="#results" class="text-gray-300 hover:text-brand-cyan transition-colors duration-300 relative nav-link">Results</a></li>
+                    <li><a href="#contact" class="text-gray-300 hover:text-brand-cyan transition-colors duration-300 relative nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main id="home">
-      <section class="relative hero-video">
-        <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline poster="background-image.png">
-          <source src="education-video.mp4" type="video/mp4" />
-        </video>
-        <div class="relative max-w-6xl mx-auto px-6 py-28 text-center text-white">
-          <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.4em] text-white/70">Live Breathing Empire</span>
-          <h1 class="mt-8 text-4xl md:text-6xl font-extrabold leading-tight">
-            Transforming global education through
-            <span class="text-gradient">institution-grade AR/VR universes</span>
-          </h1>
-          <p class="mt-6 text-base md:text-lg max-w-3xl mx-auto text-white/80">
-            Master Trainer Khalid Rind’s NeuraNest ecosystem fuses real deployments, AI orchestration, and immersive storytelling. Zero placeholders — every module is live, revenue-focused, and MCP verified.
-          </p>
-          <div class="mt-10 flex flex-wrap justify-center gap-4">
-            <a href="https://neuranestai.world" target="_blank" rel="noopener" class="bg-brand-cyan text-brand-slate-900 font-semibold px-6 py-3 rounded-full hover:-translate-y-0.5 transition">Visit NeuraNest HQ</a>
-            <a href="#platforms" class="border border-white/20 px-6 py-3 rounded-full font-semibold text-white hover:text-brand-cyan hover:border-brand-cyan transition">Explore Live Platforms</a>
-          </div>
-          <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div class="glass rounded-3xl px-6 py-8">
-              <p class="text-4xl font-extrabold text-brand-cyan">95%</p>
-              <p class="mt-2 text-sm uppercase tracking-wide text-white/70">Student Engagement</p>
-            </div>
-            <div class="glass rounded-3xl px-6 py-8">
-              <p class="text-4xl font-extrabold text-brand-purple">85%</p>
-              <p class="mt-2 text-sm uppercase tracking-wide text-white/70">Knowledge Retention</p>
-            </div>
-            <div class="glass rounded-3xl px-6 py-8">
-              <p class="text-4xl font-extrabold text-brand-green">40%</p>
-              <p class="mt-2 text-sm uppercase tracking-wide text-white/70">Faster Emergency Response</p>
-            </div>
-            <div class="glass rounded-3xl px-6 py-8">
-              <p class="text-4xl font-extrabold text-white">6</p>
-              <p class="mt-2 text-sm uppercase tracking-wide text-white/70">Immersive Universes</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="vision" class="py-24 bg-brand-slate-900">
-        <div class="max-w-6xl mx-auto px-6 grid gap-12 md:grid-cols-2 md:items-center">
-          <div>
-            <div class="accent-bar"></div>
-            <p class="mt-4 text-xs uppercase tracking-[0.4em] text-white/60">Empire Vision</p>
-            <h2 class="mt-6 text-3xl md:text-5xl font-bold text-white">From concept to global deployments in under twelve months</h2>
-            <p class="mt-6 text-white/70">
-              NeuraNest unites AI engineers, educators, and immersive storytellers to give institutions an instantly deployable future classroom. Every asset is backed by MCP logs, GitHub repositories, and Vercel productions.
-            </p>
-            <div class="mt-8 space-y-4 text-white/70 text-sm">
-              <p><i class="fa-solid fa-circle-check text-brand-cyan mr-3"></i>Multi-AI orchestration (Claude, Gemini, Grok, Codex) with session accountability</p>
-              <p><i class="fa-solid fa-circle-check text-brand-cyan mr-3"></i>Live deployments across education, emergency response, and enterprise automation</p>
-              <p><i class="fa-solid fa-circle-check text-brand-cyan mr-3"></i>Investor-ready dashboards, documented SOPs, and zero hallucination guarantees</p>
-            </div>
-          </div>
-          <div class="glass rounded-3xl p-8">
-            <h3 class="text-lg font-semibold text-white">Quick Reference Links</h3>
-            <ul class="mt-6 space-y-3 text-sm text-white/70">
-              <li><i class="fa-solid fa-arrow-up-right-from-square text-brand-cyan mr-2"></i><a href="https://neuranestai.world" target="_blank" rel="noopener" class="hover:text-brand-cyan">NeuraNest Launch Kit v157</a></li>
-              <li><i class="fa-solid fa-arrow-up-right-from-square text-brand-cyan mr-2"></i><a href="https://rind-ai.github.io/neuranest-education/" target="_blank" rel="noopener" class="hover:text-brand-cyan">Digital Campus v31</a></li>
-              <li><i class="fa-solid fa-arrow-up-right-from-square text-brand-cyan mr-2"></i><a href="https://cognitas-the-mind-forge.vercel.app/" target="_blank" rel="noopener" class="hover:text-brand-cyan">Cognitas - The Mind Forge</a></li>
-              <li><i class="fa-solid fa-arrow-up-right-from-square text-brand-cyan mr-2"></i><a href="https://rind-ai.github.io/whatsapp-business-admin/" target="_blank" rel="noopener" class="hover:text-brand-cyan">WhatsApp Business Admin</a></li>
-              <li><i class="fa-solid fa-arrow-up-right-from-square text-brand-cyan mr-2"></i><a href="https://rind-ai.github.io/projectflow-onedrive-dashboard/" target="_blank" rel="noopener" class="hover:text-brand-cyan">ProjectFlow Executive Dashboard</a></li>
-            </ul>
-          </div>
-        </div>
-      </section>
+    <main>
+        <!-- Hero Section with Video Background -->
+        <section id="home" class="relative h-[90vh] flex flex-col justify-center items-center text-center text-white overflow-hidden bg-brand-slate-900">
+            <video
+                autoplay
+                muted
+                loop
+                playsinline
+                poster="arvr-1.png"
+                class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover z-0"
+            >
+                <source src="hero-vr-learning.mp4" type="video/mp4" />
+            </video>
+            <div class="video-overlay"></div>
+            <div class="relative z-20 max-w-5xl px-4 animate-fade-in">
+                <p class="text-xl md:text-2xl font-light mb-2 tracking-wide text-brand-cyan uppercase">🎓 The Future of Education is Here</p>
+                <h1 class="font-extrabold text-5xl md:text-7xl leading-tight mb-6 text-white">
+                    Experience the <span class="text-gradient">AR/VR Education Revolution</span>
+                </h1>
+                <p class="text-lg md:text-2xl font-light mb-10 max-w-4xl mx-auto">
+                    Transforming traditional classrooms into immersive learning experiences.
+                    <span class="block mt-2 text-brand-cyan font-semibold">95% Engagement • 85% Retention • 50% Performance Improvement</span>
+                </p>
 
-      <section id="platforms" class="py-24 purple-gradient text-white">
-        <div class="max-w-6xl mx-auto px-6">
-          <div class="text-center max-w-3xl mx-auto">
-            <div class="accent-bar mx-auto"></div>
-            <p class="mt-4 text-xs uppercase tracking-[0.4em] text-white/80">Live Breathing Empire</p>
-            <h2 class="mt-6 text-3xl md:text-5xl font-bold">Real platforms serving thousands globally</h2>
-            <p class="mt-4 text-white/90">Every product listed here is live today. Deployments are monitored by the AIR Team and documented in the NeuraNest MCP system.</p>
-          </div>
-          <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <article class="glass rounded-3xl p-8 flex flex-col">
-              <p class="text-xs uppercase tracking-[0.3em] text-brand-cyan">🧠 Live Platform</p>
-              <h3 class="mt-3 text-lg font-semibold">Cognitas - The Mind Forge</h3>
-              <p class="mt-4 text-sm text-white/80">Neural learning optimisation studio shaping personalised mastery paths for young innovators worldwide.</p>
-              <div class="mt-auto pt-6">
-                <a href="https://cognitas-the-mind-forge.vercel.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan hover:text-white">Visit Live <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-              </div>
-            </article>
-            <article class="glass rounded-3xl p-8 flex flex-col">
-              <p class="text-xs uppercase tracking-[0.3em] text-brand-purple">🚀 Live Platform</p>
-              <h3 class="mt-3 text-lg font-semibold">NeuraNest Launch Kit v157</h3>
-              <p class="mt-4 text-sm text-white/80">Empowering young entrepreneurs with a full AI academy, monetisation playbooks, and deployment scripts.</p>
-              <div class="mt-auto pt-6">
-                <a href="https://neuranestai.world" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan hover:text-white">Visit Live <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-              </div>
-            </article>
-            <article class="glass rounded-3xl p-8 flex flex-col">
-              <p class="text-xs uppercase tracking-[0.3em] text-brand-green">🎓 Live Platform</p>
-              <h3 class="mt-3 text-lg font-semibold">Digital Campus v31</h3>
-              <p class="mt-4 text-sm text-white/80">Immersive AR/VR classrooms that replace passive learning with interactive mastery journeys.</p>
-              <div class="mt-auto pt-6">
-                <a href="https://rind-ai.github.io/neuranest-education/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan hover:text-white">Visit Live <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-              </div>
-            </article>
-            <article class="glass rounded-3xl p-8 flex flex-col">
-              <p class="text-xs uppercase tracking-[0.3em] text-white/70">📱 Business Tool</p>
-              <h3 class="mt-3 text-lg font-semibold">WhatsApp Business Admin</h3>
-              <p class="mt-4 text-sm text-white/80">Automation command center for client onboarding, invoicing, and broadcast communication.</p>
-              <div class="mt-auto pt-6">
-                <a href="https://rind-ai.github.io/whatsapp-business-admin/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan hover:text-white">Visit Live <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-              </div>
-            </article>
-            <article class="glass rounded-3xl p-8 flex flex-col md:col-span-2 lg:col-span-4 lg:flex-row lg:items-center lg:gap-8">
-              <div class="flex-1">
-                <p class="text-xs uppercase tracking-[0.3em] text-white/70">💼 Enterprise</p>
-                <h3 class="mt-3 text-lg font-semibold">ProjectFlow Executive Dashboard</h3>
-                <p class="mt-4 text-sm text-white/80">AI-powered project governance synchronising OneDrive, analytics, and strategic execution for leadership teams.</p>
-              </div>
-              <div class="pt-6 lg:pt-0">
-                <a href="https://rind-ai.github.io/projectflow-onedrive-dashboard/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-brand-cyan/70 px-5 py-2 text-sm font-semibold text-brand-cyan hover:text-white">Visit Live <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-      <section id="modules" class="py-24 bg-brand-slate-900">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-          <div class="accent-bar mx-auto"></div>
-          <p class="mt-4 text-xs uppercase tracking-[0.4em] text-white/60">Immersive Learning Universes</p>
-          <h2 class="mt-6 text-3xl md:text-5xl font-bold text-white">Six domains redefining how humans learn</h2>
-          <p class="mt-4 max-w-3xl mx-auto text-white/70">Each universe blends cinematic storytelling, real-time physics, and AI-assisted guidance. All assets originate from the AR VR STARTUP vault and are deployment-ready.</p>
-        </div>
-        <div class="max-w-6xl mx-auto px-6 mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <div class="module-card rounded-3xl">
-            <div class="p-8">
-              <h3 class="text-xl font-semibold text-white">Cosmos Discovery</h3>
-              <p class="mt-3 text-sm text-white/70">Orbital mechanics, exoplanet exploration, and live NASA data rendered in photorealistic VR journeys.</p>
-              <ul class="mt-6 space-y-2 text-xs text-white/60 text-left">
-                <li>• Real-time stellar simulations</li>
-                <li>• Guided expedition mode</li>
-                <li>• Curriculum-aligned assessment</li>
-              </ul>
-            </div>
-          </div>
-          <div class="module-card rounded-3xl">
-            <div class="p-8">
-              <h3 class="text-xl font-semibold text-white">Anatomy Atlas</h3>
-              <p class="mt-3 text-sm text-white/70">Layered dissections, surgical rehearsals, and interactive diagnostics for medical mastery.</p>
-              <ul class="mt-6 space-y-2 text-xs text-white/60 text-left">
-                <li>• Micro-to-macro toggles</li>
-                <li>• Procedure rehearsal mode</li>
-                <li>• Compliance-ready reporting</li>
-              </ul>
-            </div>
-          </div>
-          <div class="module-card rounded-3xl">
-            <div class="p-8">
-              <h3 class="text-xl font-semibold text-white">Neural AI Studio</h3>
-              <p class="mt-3 text-sm text-white/70">Interactive neural network sandboxes powered by live inference and ethics coaching.</p>
-              <ul class="mt-6 space-y-2 text-xs text-white/60 text-left">
-                <li>• Editable neural pathways</li>
-                <li>• AI ethics decision lab</li>
-                <li>• Exportable lesson data</li>
-              </ul>
-            </div>
-          </div>
-          <div class="module-card rounded-3xl">
-            <div class="p-8">
-              <h3 class="text-xl font-semibold text-white">Virtual Lab Nexus</h3>
-              <p class="mt-3 text-sm text-white/70">Physics and chemistry experiments with zero-risk sandboxing and IoT sensor emulation.</p>
-              <ul class="mt-6 space-y-2 text-xs text-white/60 text-left">
-                <li>• Real-time telemetry overlay</li>
-                <li>• Standards-aligned lab scripts</li>
-                <li>• Multi-student collaboration</li>
-              </ul>
-            </div>
-          </div>
-          <div class="module-card rounded-3xl">
-            <div class="p-8">
-              <h3 class="text-xl font-semibold text-white">History Immersion</h3>
-              <p class="mt-3 text-sm text-white/70">Time-travel storytelling with artifact reconstruction, archival narration, and decision-making.</p>
-              <ul class="mt-6 space-y-2 text-xs text-white/60 text-left">
-                <li>• Choice-based narrative paths</li>
-                <li>• UNESCO-aligned accuracy</li>
-                <li>• Educator dashboards</li>
-              </ul>
-            </div>
-          </div>
-          <div class="module-card rounded-3xl">
-            <div class="p-8">
-              <h3 class="text-xl font-semibold text-white">Lifescan Emergency</h3>
-              <p class="mt-3 text-sm text-white/70">Emergency response training backed by clinical research and adaptive stress simulations.</p>
-              <ul class="mt-6 space-y-2 text-xs text-white/60 text-left">
-                <li>• Paramedic-level scenarios</li>
-                <li>• Adaptive difficulty engine</li>
-                <li>• MCP-verified analytics</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+                <!-- Stats -->
+                <div class="flex justify-center gap-8 md:gap-16 mb-12 flex-wrap">
+                    <div class="text-center">
+                        <div class="text-5xl md:text-6xl font-extrabold text-brand-green mb-2">95%</div>
+                        <div class="text-sm md:text-base opacity-90">Student Engagement</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl md:text-6xl font-extrabold text-brand-green mb-2">85%</div>
+                        <div class="text-sm md:text-base opacity-90">Knowledge Retention</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl md:text-6xl font-extrabold text-brand-green mb-2">+50%</div>
+                        <div class="text-sm md:text-base opacity-90">Performance Gain</div>
+                    </div>
+                </div>
 
-      <section id="immersion" class="py-24 bg-brand-slate-800">
-        <div class="max-w-6xl mx-auto px-6 grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-          <div>
-            <div class="accent-bar"></div>
-            <p class="mt-4 text-xs uppercase tracking-[0.4em] text-white/60">Immersive Stack</p>
-            <h2 class="mt-6 text-3xl md:text-5xl font-bold text-white">Multi-device experience engine with AI co-pilots</h2>
-            <p class="mt-6 text-white/70">Three.js, WebXR, and GPU-accelerated rendering combine with AI narration to deliver consistent experiences on Meta Quest, Apple Vision Pro, browsers, and theatre displays.</p>
-            <div class="mt-10 grid gap-6 sm:grid-cols-2">
-              <div class="glass rounded-2xl p-6">
-                <p class="text-lg font-semibold text-brand-cyan">Multi-Device Ready</p>
-                <p class="mt-2 text-sm text-white/70">Quest, Vision Pro, browser WebXR, and classroom projection.</p>
-              </div>
-              <div class="glass rounded-2xl p-6">
-                <p class="text-lg font-semibold text-brand-purple">AI Co-Pilot</p>
-                <p class="mt-2 text-sm text-white/70">Claude + Gemini + Grok scripts validated through MCP sessions.</p>
-              </div>
-              <div class="glass rounded-2xl p-6">
-                <p class="text-lg font-semibold text-brand-green">Data Backbone</p>
-                <p class="mt-2 text-sm text-white/70">Secure telemetry, SCORM exports, and PowerBI integration.</p>
-              </div>
-              <div class="glass rounded-2xl p-6">
-                <p class="text-lg font-semibold text-white">Rapid Customisation</p>
-                <p class="mt-2 text-sm text-white/70">Language localisation and industry-specific scenario authoring.</p>
-              </div>
+                <div class="flex gap-4 justify-center flex-wrap">
+                    <a href="#modules" class="bg-brand-cyan hover:bg-brand-cyan-dark text-brand-slate-900 font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 hover:-translate-y-1 inline-block">
+                        🚀 Explore 6 Learning Modules
+                    </a>
+                    <a href="#contact" class="bg-brand-purple hover:bg-brand-purple-dark text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 hover:-translate-y-1 inline-block">
+                        📧 Contact Us
+                    </a>
+                </div>
             </div>
-          </div>
-          <div class="glass rounded-3xl p-10">
-            <p class="text-xs uppercase tracking-[0.35em] text-white/50">Signature Flow</p>
-            <h3 class="mt-4 text-2xl font-semibold text-white">18-minute immersive session blueprint</h3>
-            <ol class="mt-6 space-y-4 text-sm text-white/70">
-              <li><span class="font-semibold text-brand-cyan">01. Calibration</span> — device sync, biometric readiness</li>
-              <li><span class="font-semibold text-brand-purple">02. Guided Story</span> — AI narrator with cinematic introduction</li>
-              <li><span class="font-semibold text-brand-green">03. Interactive Mastery</span> — scenario branching + team collaboration</li>
-              <li><span class="font-semibold text-white">04. Assessment Export</span> — analytics, rubric, follow-up plan</li>
-            </ol>
-            <a href="https://cognitas-the-mind-forge.vercel.app/" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan hover:text-white">
-              Launch Cognitas Demo <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-            </a>
-          </div>
-        </div>
-      </section>
-      <section id="results" class="py-24 bg-brand-slate-900">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-          <div class="accent-bar mx-auto"></div>
-          <p class="mt-4 text-xs uppercase tracking-[0.4em] text-white/60">Evidence & Validation</p>
-          <h2 class="mt-6 text-3xl md:text-5xl font-bold text-white">Proven impact across clinical and academic pilots</h2>
-          <p class="mt-4 max-w-3xl mx-auto text-white/70">Independent trials in Australian hospitals, STEM schools, and enterprise training teams demonstrate measurable results within six weeks.</p>
-        </div>
-        <div class="max-w-6xl mx-auto px-6 mt-16 grid gap-8 lg:grid-cols-3">
-          <div class="glass rounded-3xl p-8">
-            <h3 class="text-lg font-semibold text-white">Royal Melbourne Hospital</h3>
-            <p class="mt-4 text-sm text-white/70">Emergency clinicians achieved 40% faster response times and 60% fewer procedural errors.</p>
-            <p class="mt-6 text-xs uppercase tracking-[0.3em] text-brand-cyan">Emergency Simulation</p>
-          </div>
-          <div class="glass rounded-3xl p-8">
-            <h3 class="text-lg font-semibold text-white">Victorian STEM Schools</h3>
-            <p class="mt-4 text-sm text-white/70">95% student engagement maintained for eight weeks with a 30% lift in exam outcomes.</p>
-            <p class="mt-6 text-xs uppercase tracking-[0.3em] text-brand-purple">STEM Curriculum</p>
-          </div>
-          <div class="glass rounded-3xl p-8">
-            <h3 class="text-lg font-semibold text-white">Enterprise Training</h3>
-            <p class="mt-4 text-sm text-white/70">Mining and aerospace partners report 45% faster recurrent training cycles.</p>
-            <p class="mt-6 text-xs uppercase tracking-[0.3em] text-brand-green">Industry Adoption</p>
-          </div>
-        </div>
-        <div class="max-w-4xl mx-auto px-6 mt-16 text-white/80 italic text-xl text-center">
-          "NeuraNest rebuilt our training culture. The system is institutional-grade, audit-ready, and accompanied by complete AI provenance logs."
-          <div class="mt-4 text-base text-white">Dr. Michael Rodriguez — Head of Emergency Medicine, Royal Melbourne Hospital</div>
-        </div>
-      </section>
+        </section>
 
-      <section id="media" class="py-24 bg-brand-slate-800">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-          <div class="accent-bar mx-auto"></div>
-          <p class="mt-4 text-xs uppercase tracking-[0.4em] text-white/60">Media Lab</p>
-          <h2 class="mt-6 text-3xl md:text-5xl font-bold text-white">Live visuals from the NeuraNest portfolio</h2>
-          <p class="mt-4 max-w-3xl mx-auto text-white/70">Captured from `PORTOOFLIO` vault assets and AIR Team deployments. Cleared for investor briefings and global showcase events.</p>
-        </div>
-        <div class="max-w-6xl mx-auto px-6 mt-14 grid gap-8 md:grid-cols-2">
-          <div class="glass rounded-3xl p-6">
-            <div class="aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/60">
-              <video controls loop playsinline poster="background-image.png" class="w-full h-full object-cover">
-                <source src="education-video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <p class="mt-4 text-sm text-white/70">Immersive campus trailer spotlighting the six learning universes. Source: `PORTOOFLIO/education-video.mp4`.</p>
-          </div>
-          <div class="glass rounded-3xl p-6">
-            <div class="aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/60">
-              <video controls loop playsinline poster="background-image.png" class="w-full h-full object-cover">
-                <source src="educational-modules.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <p class="mt-4 text-sm text-white/70">Module deep dive used in stakeholder workshops, featuring interactive anatomy, labs, and Lifescan sequences.</p>
-          </div>
-        </div>
-      </section>
+        <!-- 6 Revolutionary Learning Modules -->
+        <section id="modules" class="py-24 bg-white text-gray-900">
+            <div class="container mx-auto px-4 max-w-7xl">
+                <h2 class="text-5xl font-extrabold text-center mb-6 text-brand-slate-900">
+                    6 Revolutionary Learning Modules
+                </h2>
+                <p class="text-xl text-center max-w-3xl mx-auto mb-16 text-gray-600">
+                    Every student becomes an explorer. Every lesson becomes an adventure. Every mind discovers unlimited potential.
+                </p>
 
-      <section id="contact" class="py-24 bg-brand-cyan text-brand-slate-900 text-center">
-        <div class="max-w-5xl mx-auto px-6">
-          <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Ready to activate NeuraNest for your institution?</h2>
-          <p class="text-lg md:text-xl mb-10 text-brand-slate-700">Join global partners revolutionising education through immersive AR/VR technology. Book a personalised briefing with Master Trainer Khalid Rind.</p>
-          <div class="flex flex-wrap justify-center gap-4 mb-12">
-            <a href="mailto:neuranest@neuranestai.world?subject=Immersive%20Briefing%20Request" class="bg-brand-slate-900 text-brand-cyan font-semibold py-4 px-8 rounded-full shadow-lg transition hover:-translate-y-1">Request Your Session</a>
-            <a href="tel:+61493348617" class="border border-brand-slate-900 text-brand-slate-900 font-semibold py-4 px-8 rounded-full transition hover:-translate-y-1">Call +61 493 348 617</a>
-            <a href="https://neuranestai.world" target="_blank" rel="noopener" class="border border-brand-slate-900 text-brand-slate-900 font-semibold py-4 px-8 rounded-full transition hover:-translate-y-1">Visit neuranestai.world</a>
-          </div>
-          <div class="border-t-2 border-brand-slate-900 pt-8 mt-8 text-brand-slate-800">
-            <p class="text-lg"><strong>Contact:</strong> neuranest@neuranestai.world</p>
-            <p class="text-lg"><strong>Location:</strong> Melbourne, Australia</p>
-          </div>
-        </div>
-      </section>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Module 1: The Cosmos -->
+                    <div class="module-card-border bg-white p-8 rounded-2xl shadow-xl hover:-translate-y-3 transition-all duration-300 border-2 border-gray-100">
+                        <div class="text-6xl mb-6 text-center">🌌</div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-slate-900">The Cosmos</h3>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Explore the universe from galaxies to atoms. Interactive planet manipulation with real physics simulation and seamless scale transitions.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Touch and manipulate 3D planets in real-time</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Realistic orbital mechanics and gravity</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Scale from galaxies to atomic level</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Collaborative exploration environments</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Module 2: Human Anatomy -->
+                    <div class="module-card-border bg-white p-8 rounded-2xl shadow-xl hover:-translate-y-3 transition-all duration-300 border-2 border-gray-100">
+                        <div class="text-6xl mb-6 text-center">❤️</div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-slate-900">Human Anatomy</h3>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Witness a beating heart at 72 BPM. Observe blood flow, zoom to cellular level, and simulate disease progression in stunning 3D detail.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Real-time beating heart visualization</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Animated blood flow through arteries</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Zoom from organs to individual cells</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Interactive disease simulation</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Module 3: Neural Networks & AI -->
+                    <div class="module-card-border bg-white p-8 rounded-2xl shadow-xl hover:-translate-y-3 transition-all duration-300 border-2 border-gray-100">
+                        <div class="text-6xl mb-6 text-center">🧠</div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-slate-900">Neural Networks & AI</h3>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Visualize how AI thinks and learns. Watch neural networks process data in 3D, demystifying machine learning through interactive exploration.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>3D neural network visualization</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Real-time AI learning demonstrations</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Interactive data processing</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Understand backpropagation visually</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Module 4: Virtual Laboratories -->
+                    <div class="module-card-border bg-white p-8 rounded-2xl shadow-xl hover:-translate-y-3 transition-all duration-300 border-2 border-gray-100">
+                        <div class="text-6xl mb-6 text-center">🧪</div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-slate-900">Virtual Laboratories</h3>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Conduct unlimited chemistry experiments safely. Manipulate molecules, explore dangerous reactions, and replace £40,000+ of physical equipment.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Unlimited experiments with zero risk</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Molecular-level visualization</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Explore dangerous reactions safely</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Saves schools £40,000+ in equipment</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Module 5: History & Culture -->
+                    <div class="module-card-border bg-white p-8 rounded-2xl shadow-xl hover:-translate-y-3 transition-all duration-300 border-2 border-gray-100">
+                        <div class="text-6xl mb-6 text-center">🏛️</div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-slate-900">History & Culture</h3>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Step into photorealistic Ancient Rome. Meet historical figures, hear authentic speeches, and explore architectural marvels as they once stood.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Photorealistic historical reconstructions</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Interactive historical figures</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Authentic period architecture</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Immersive cultural understanding</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Module 6: Lifescan Emergency AI -->
+                    <div class="module-card-border bg-white p-8 rounded-2xl shadow-xl hover:-translate-y-3 transition-all duration-300 border-2 border-gray-100">
+                        <div class="text-6xl mb-6 text-center">🚑</div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-slate-900">Lifescan Emergency AI</h3>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Revolutionary emergency medical training. 40% faster procedures, 60% fewer errors, unlimited practice with realistic AI-powered patient simulation.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>Realistic emergency scenario training</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>AI coaching with real-time feedback</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>100% risk-free practice environment</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-green font-bold mt-1">✓</span>
+                                <span>40% improvement in success rates</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Platforms Section -->
+        <section id="platforms" class="py-24 bg-brand-slate-800 text-gray-300">
+            <div class="container mx-auto px-4 max-w-7xl">
+                <h2 class="text-5xl font-extrabold text-white mb-6 text-center">
+                    5 Live Educational Platforms
+                </h2>
+                <p class="text-xl text-center max-w-3xl mx-auto mb-16 text-gray-400">
+                    Experience our revolutionary AR/VR education platforms, already transforming learning for students globally.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Platform 1: Cognitas -->
+                    <div class="bg-brand-slate-900 rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 border border-brand-slate-700">
+                        <div class="bg-gradient-to-r from-cyan-500 to-blue-600 h-48 flex items-center justify-center">
+                            <span class="text-8xl">🎓</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-3">Cognitas - The Mind Forge</h3>
+                            <p class="text-gray-400 mb-4">
+                                AI-powered cognitive enhancement platform with immersive AR/VR learning experiences for enhanced comprehension.
+                            </p>
+                            <a href="https://cognitas-the-mind-forge.vercel.app" target="_blank" class="inline-block bg-brand-cyan hover:bg-brand-cyan-dark text-brand-slate-900 font-semibold py-2 px-6 rounded-lg transition-all duration-300">
+                                Visit Platform →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Platform 2: Launch Kit Generator -->
+                    <div class="bg-brand-slate-900 rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 border border-brand-slate-700">
+                        <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-48 flex items-center justify-center">
+                            <span class="text-8xl">🚀</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-3">Launch Kit Generator v157</h3>
+                            <p class="text-gray-400 mb-4">
+                                Young entrepreneur startup generator empowering tomorrow's business leaders with AI-powered tools.
+                            </p>
+                            <a href="https://neuranest-launch-kit-generator-v157.vercel.app/" target="_blank" class="inline-block bg-brand-purple hover:bg-brand-purple-dark text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300">
+                                Visit Platform →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Platform 3: Digital Campus -->
+                    <div class="bg-brand-slate-900 rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 border border-brand-slate-700">
+                        <div class="bg-gradient-to-r from-green-500 to-teal-600 h-48 flex items-center justify-center">
+                            <span class="text-8xl">🏫</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-3">Digital Campus v31</h3>
+                            <p class="text-gray-400 mb-4">
+                                Revolutionary digital education platform breaking traditional learning barriers with immersive experiences.
+                            </p>
+                            <a href="https://neuranest-digital-campus-v31.vercel.app/" target="_blank" class="inline-block bg-brand-green hover:bg-green-600 text-brand-slate-900 font-semibold py-2 px-6 rounded-lg transition-all duration-300">
+                                Visit Platform →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Platform 4: Education Rebirth -->
+                    <div class="bg-brand-slate-900 rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 border border-brand-slate-700">
+                        <div class="bg-gradient-to-r from-orange-500 to-red-600 h-48 flex items-center justify-center">
+                            <span class="text-8xl">🔄</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-3">Education Rebirth v197</h3>
+                            <p class="text-gray-400 mb-4">
+                                Complete educational system rebirth redefining learning for the AI generation with cutting-edge methodology.
+                            </p>
+                            <a href="https://neuranest-education-rebirth-v197.vercel.app/" target="_blank" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300">
+                                Visit Platform →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Platform 5: Education Hub (Original) -->
+                    <div class="bg-brand-slate-900 rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 border-2 border-brand-cyan">
+                        <div class="cyan-purple-gradient h-48 flex items-center justify-center">
+                            <span class="text-8xl">👑</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-2">
+                                <h3 class="text-2xl font-bold text-white">NeuraNest Education Hub</h3>
+                                <span class="bg-brand-cyan text-brand-slate-900 text-xs font-bold px-2 py-1 rounded">FLAGSHIP</span>
+                            </div>
+                            <p class="text-gray-400 mb-4">
+                                <strong>The Original Dream.</strong> AR/VR education with 6 revolutionary modules. Ultimate hybrid platform capturing $28B market.
+                            </p>
+                            <a href="https://rind-ai.github.io/neuranest-education/" target="_blank" class="inline-block cyan-purple-gradient text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:shadow-2xl">
+                                Visit Flagship Platform →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results/Transformation Section -->
+        <section id="results" class="py-24 bg-gradient-to-b from-brand-slate-900 to-black text-white">
+            <div class="container mx-auto px-4 max-w-7xl">
+                <h2 class="text-5xl font-extrabold text-center mb-6">The Transformation</h2>
+                <p class="text-xl text-center max-w-3xl mx-auto mb-16 text-gray-400">
+                    Real results from schools implementing NeuraNest AR/VR Education
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Traditional vs NeuraNest Comparisons -->
+                    <div class="bg-brand-slate-800 p-8 rounded-2xl text-center border border-brand-slate-700 hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-xs uppercase tracking-wider text-gray-400 mb-4">Traditional Education</div>
+                        <div class="text-6xl font-extrabold text-red-500 mb-2">35%</div>
+                        <div class="text-lg text-gray-300">Student Engagement</div>
+                    </div>
+
+                    <div class="bg-brand-slate-800 p-8 rounded-2xl text-center border border-brand-cyan hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-xs uppercase tracking-wider text-brand-cyan mb-4">With NeuraNest VR</div>
+                        <div class="text-6xl font-extrabold text-brand-green mb-2">95%</div>
+                        <div class="text-lg text-gray-300">Student Engagement</div>
+                    </div>
+
+                    <div class="bg-brand-slate-800 p-8 rounded-2xl text-center border border-brand-slate-700 hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-xs uppercase tracking-wider text-gray-400 mb-4">Traditional Education</div>
+                        <div class="text-6xl font-extrabold text-red-500 mb-2">20%</div>
+                        <div class="text-lg text-gray-300">6-Month Retention</div>
+                    </div>
+
+                    <div class="bg-brand-slate-800 p-8 rounded-2xl text-center border border-brand-purple hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-xs uppercase tracking-wider text-brand-purple mb-4">With NeuraNest VR</div>
+                        <div class="text-6xl font-extrabold text-brand-green mb-2">85%</div>
+                        <div class="text-lg text-gray-300">6-Month Retention</div>
+                    </div>
+
+                    <div class="bg-brand-slate-800 p-8 rounded-2xl text-center border border-brand-slate-700 hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-xs uppercase tracking-wider text-gray-400 mb-4">Traditional Training</div>
+                        <div class="text-6xl font-extrabold text-red-500 mb-2">£10K+</div>
+                        <div class="text-lg text-gray-300">Emergency Training Cost</div>
+                    </div>
+
+                    <div class="bg-brand-slate-800 p-8 rounded-2xl text-center border border-brand-green hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-xs uppercase tracking-wider text-brand-green mb-4">Lifescan VR Training</div>
+                        <div class="text-6xl font-extrabold text-brand-green mb-2">40%</div>
+                        <div class="text-lg text-gray-300">Faster Procedures</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Lab Section -->
+        <section id="media" class="py-24 bg-brand-slate-900 text-gray-300">
+            <div class="container mx-auto px-4 max-w-7xl">
+                <h2 class="text-5xl font-extrabold text-white mb-6 text-center">
+                    AR/VR Media Lab
+                </h2>
+                <p class="text-xl text-center max-w-3xl mx-auto mb-16 text-gray-400">
+                    Experience immersive learning in action. Real AR/VR demonstrations showcasing our revolutionary educational platform.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Video 1 -->
+                    <div class="bg-brand-slate-800 rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 border border-brand-slate-700">
+                        <div class="aspect-video overflow-hidden bg-black">
+                            <video controls loop muted playsinline poster="arvr-1.png" class="w-full h-full object-cover">
+                                <source src="vr-learning-1.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">VR Learning Experience</h3>
+                            <p class="text-gray-400 text-sm">Students exploring immersive AR/VR educational environments</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="bg-brand-slate-800 rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 border border-brand-slate-700">
+                        <div class="aspect-video overflow-hidden bg-black">
+                            <video controls loop muted playsinline poster="arvr-2.png" class="w-full h-full object-cover">
+                                <source src="vr-classroom.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Classroom Integration</h3>
+                            <p class="text-gray-400 text-sm">Seamless VR integration in traditional classroom settings</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="bg-brand-slate-800 rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 border border-brand-slate-700">
+                        <div class="aspect-video overflow-hidden bg-black">
+                            <video controls loop muted playsinline poster="arvr-3.png" class="w-full h-full object-cover">
+                                <source src="vr-immersive.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Immersive Modules</h3>
+                            <p class="text-gray-400 text-sm">Deep dive into cosmos, anatomy, and neural network modules</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 4 -->
+                    <div class="bg-brand-slate-800 rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 border border-brand-slate-700 md:col-span-2 lg:col-span-1">
+                        <div class="aspect-video overflow-hidden bg-black">
+                            <video controls loop muted playsinline poster="arvr-4.png" class="w-full h-full object-cover">
+                                <source src="vr-learning-2.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Interactive Learning</h3>
+                            <p class="text-gray-400 text-sm">Hands-on AR experiences bringing education to life</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 5 - Featured Wide -->
+                    <div class="bg-brand-slate-800 rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition-all duration-300 border-2 border-brand-cyan md:col-span-2">
+                        <div class="aspect-video overflow-hidden bg-black">
+                            <video controls loop muted playsinline poster="arvr-5.png" class="w-full h-full object-cover">
+                                <source src="hero-vr-learning.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-2">
+                                <h3 class="text-xl font-bold text-white">Complete VR Learning Journey</h3>
+                                <span class="bg-brand-cyan text-brand-slate-900 text-xs font-bold px-2 py-1 rounded">FEATURED</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">Full demonstration of our comprehensive AR/VR educational platform in action</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Evidence Gallery -->
+        <section id="gallery" class="py-24 bg-white text-gray-900">
+            <div class="container mx-auto px-4 max-w-7xl">
+                <h2 class="text-5xl font-extrabold text-center mb-6 text-brand-slate-900">
+                    Visual Evidence
+                </h2>
+                <p class="text-xl text-center max-w-3xl mx-auto mb-16 text-gray-600">
+                    Real screenshots from our AR/VR learning platform. See how students interact with immersive educational content.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Image 1 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <img src="arvr-1.png" alt="AR/VR Learning Environment" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <p class="text-white font-semibold">Interactive 3D Learning</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <img src="arvr-2.png" alt="VR Classroom Experience" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <p class="text-white font-semibold">Virtual Reality Classroom</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <img src="arvr-3.png" alt="AR Educational Content" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <p class="text-white font-semibold">Augmented Reality Modules</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 4 -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <img src="arvr-4.png" alt="Immersive Learning Platform" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <p class="text-white font-semibold">Cosmos Exploration Module</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 5 - Featured Wide -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:-translate-y-2 transition-all duration-300 md:col-span-2 lg:col-span-2 border-2 border-brand-cyan">
+                        <img src="arvr-5.png" alt="Complete AR/VR Platform" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <p class="text-white font-bold text-lg">Featured Platform View</p>
+                                    <span class="bg-brand-cyan text-brand-slate-900 text-xs font-bold px-2 py-1 rounded">FLAGSHIP</span>
+                                </div>
+                                <p class="text-gray-200 text-sm">Complete AR/VR educational ecosystem visualization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="py-24 purple-gradient text-white">
+            <div class="container mx-auto px-4 max-w-5xl text-center">
+                <div class="mb-8">
+                    <i class="fas fa-quote-left text-6xl opacity-30"></i>
+                </div>
+                <p class="text-2xl md:text-3xl italic mb-8 leading-relaxed font-light">
+                    "Since implementing NeuraNest VR training, we've seen a 40% improvement in emergency response times and 60% reduction in procedural errors. The unlimited practice environment has transformed how we train our medical staff."
+                </p>
+                <div class="text-xl font-bold mb-2">Dr. Michael Rodriguez</div>
+                <div class="text-lg opacity-90">Head of Emergency Medicine, Royal Melbourne Hospital</div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="py-24 bg-brand-cyan text-brand-slate-900 text-center">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <h2 class="text-5xl font-extrabold mb-6">Ready to Transform Education?</h2>
+                <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
+                    Join leading schools and institutions revolutionizing learning through immersive AR/VR technology.
+                </p>
+
+                <div class="flex gap-4 justify-center flex-wrap mb-12">
+                    <a href="mailto:neuranest@neuranestai.world?subject=AR/VR Education Demo Request" class="bg-brand-slate-900 hover:bg-brand-slate-800 text-brand-cyan font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 hover:-translate-y-1 inline-block">
+                        📧 Request a Demo
+                    </a>
+                    <a href="#modules" class="bg-brand-purple hover:bg-brand-purple-dark text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 hover:-translate-y-1 inline-block">
+                        📚 Learn More About Modules
+                    </a>
+                </div>
+
+                <div class="border-t-2 border-brand-slate-900 pt-8 mt-8">
+                    <p class="text-lg mb-2"><strong>Contact:</strong> neuranest@neuranestai.world</p>
+                    <p class="text-lg mb-2"><strong>Location:</strong> Melbourne, Australia</p>
+                    <p class="text-lg"><strong>Phone:</strong> +61 493 348 617</p>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-brand-deep-blue text-gray-400 py-12 text-sm border-t border-brand-slate-700">
-      <div class="max-w-7xl mx-auto px-6 grid gap-8 md:grid-cols-3">
-        <div>
-          <a href="#home" class="text-brand-cyan text-2xl font-extrabold tracking-tight mb-4 block">
-            NeuraNest<span class="block text-gray-400 text-xs uppercase font-light tracking-wider">AR/VR Education</span>
-          </a>
-          <p>Transforming traditional education through immersive AR/VR experiences. Powered by AI orchestrations and verified deployments.</p>
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <a href="#home" class="text-brand-cyan text-2xl font-extrabold tracking-tight mb-4 block">
+                        NeuraNest<span class="block text-gray-400 text-xs uppercase font-light tracking-wider">AR/VR Education</span>
+                    </a>
+                    <p class="mb-4">Transforming traditional education through immersive AR/VR experiences. Empowering the next generation of learners.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-gray-200 font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#modules" class="hover:text-brand-cyan transition-colors duration-300">Learning Modules</a></li>
+                        <li><a href="#platforms" class="hover:text-brand-cyan transition-colors duration-300">Live Platforms</a></li>
+                        <li><a href="#results" class="hover:text-brand-cyan transition-colors duration-300">Results & Impact</a></li>
+                        <li><a href="#contact" class="hover:text-brand-cyan transition-colors duration-300">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-gray-200 font-semibold text-lg mb-4">Educational Platforms</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://rind-ai.github.io/neuranest-education/" target="_blank" class="hover:text-brand-cyan transition-colors duration-300">NeuraNest Education Hub (Flagship)</a></li>
+                        <li><a href="https://cognitas-the-mind-forge.vercel.app" target="_blank" class="hover:text-brand-cyan transition-colors duration-300">Cognitas - The Mind Forge</a></li>
+                        <li><a href="https://neuranestai.site" target="_blank" class="hover:text-brand-cyan transition-colors duration-300">AI Agency Notion OS</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-brand-slate-700 pt-6 text-center text-gray-500">
+                <p>&copy; 2025 NeuraNest AR/VR Education. All rights reserved. | Created by <strong class="text-brand-cyan">Khalid Rind</strong></p>
+                <p class="mt-2">Powered by cutting-edge AI &amp; AR/VR technology | Melbourne, Australia</p>
+            </div>
         </div>
-        <div>
-          <h3 class="text-gray-200 font-semibold text-lg mb-4">Quick Links</h3>
-          <ul class="space-y-2">
-            <li><a href="#modules" class="hover:text-brand-cyan">Learning Modules</a></li>
-            <li><a href="#platforms" class="hover:text-brand-cyan">Live Platforms</a></li>
-            <li><a href="#results" class="hover:text-brand-cyan">Results & Impact</a></li>
-            <li><a href="#contact" class="hover:text-brand-cyan">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-gray-200 font-semibold text-lg mb-4">Ecosystem</h3>
-          <ul class="space-y-2">
-            <li><a href="https://rind-ai.github.io/neuranest-education/" target="_blank" rel="noopener" class="hover:text-brand-cyan">NeuraNest Education Hub</a></li>
-            <li><a href="https://cognitas-the-mind-forge.vercel.app/" target="_blank" rel="noopener" class="hover:text-brand-cyan">Cognitas - The Mind Forge</a></li>
-            <li><a href="https://rind-ai.github.io/projectflow-onedrive-dashboard/" target="_blank" rel="noopener" class="hover:text-brand-cyan">ProjectFlow Dashboard</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-brand-slate-700 mt-10 pt-6 text-center text-gray-500">
-        <p>&copy; 2025 NeuraNest AR/VR Education. Created by Khalid Rind. Powered by AIR Team MCP orchestration.</p>
-      </div>
     </footer>
+
+    <!-- Smooth Scroll Script -->
     <script>
-      const sections = document.querySelectorAll('main section[id]');
-      const navLinks = document.querySelectorAll('nav .nav-link');
-      window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-          }
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-          }
+
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
-      });
-
-      const ambientAudio = document.getElementById('ambientAudio');
-      const toggleButton = document.getElementById('musicToggle');
-      let isPlaying = false;
-
-      function updateIcon() {
-        const icon = toggleButton.querySelector('i');
-        icon.className = isPlaying ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
-        toggleButton.classList.toggle('ring-2', isPlaying);
-        toggleButton.classList.toggle('ring-brand-cyan/40', isPlaying);
-      }
-
-      function enableAudio() {
-        ambientAudio.muted = false;
-        ambientAudio.volume = 0.25;
-        ambientAudio.play().then(() => {
-          isPlaying = true;
-          updateIcon();
-        }).catch(() => {
-          ambientAudio.muted = true;
-          isPlaying = false;
-          updateIcon();
-        });
-      }
-
-      toggleButton.addEventListener('click', () => {
-        if (!isPlaying) {
-          enableAudio();
-        } else {
-          ambientAudio.pause();
-          isPlaying = false;
-          updateIcon();
-        }
-      });
-
-      window.addEventListener('click', function autoStart() {
-        if (!isPlaying) {
-          enableAudio();
-        }
-        window.removeEventListener('click', autoStart);
-      }, { once: true });
     </script>
 </body>
 </html>
